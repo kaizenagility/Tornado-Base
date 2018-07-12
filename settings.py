@@ -4,7 +4,7 @@ tornado.options.define("environment", default="dev", help="environment")
 
 options = {
   'dev' : {
-    'mongo_database' : {'host' : 'localhost', 'port' : 27017, 'db' : 'dev'},
+    'mongo_database' : {'host' : '127.0.0.1', 'port' : 27017, 'db' : 'ToDoList'},
   },
   'test' : {
     'mongo_database' : {'host' : '', 'port' : 27017, 'db' : ''},

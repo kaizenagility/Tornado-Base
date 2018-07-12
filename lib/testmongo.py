@@ -10,5 +10,5 @@ def items_in_collection():
 # Troubleshooting with findOne() method instead of iterating through find()
 
 def get_todos():
-  return db.ToDoList.findOne();
+  return list(db.ToDoList.find());
 

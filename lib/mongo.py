@@ -7,8 +7,11 @@ class Proxy(object):
   def __getattr__(self, name):
     if Proxy._db == None:
       mongo_database = settings.get('mongo_database')
-      logging.info("connecting to mongo at %s:%d/%s" % (mongo_database['mongodb://localhost:27017'], mongo_database['ToDoList'], mongo_database['ToDoList']))
-      connection = pymongo.MongoClient(mongo_database['host'], mongo_database['port'], connectTimeoutMS=5000, max_pool_size=200)
+      logging.info("connecting to mongo at %s:%d/%s" % (mongo_database['host'], mongo_database['port'], mongo_database['db']))
+      connection = pymongo.MongoClient(
+        'mongodb://%s:%s/%s' % (mongo_database['host'],mongo_database['port'],mongo_database['db']),
+        connectTimeoutMS=5000
+      )
       Proxy._db = connection[mongo_database['db']]
 
     return getattr(self._db, name)
