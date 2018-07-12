@@ -18,3 +18,11 @@ class TestMongo(app.basic.BaseHandler):
     """
     items_in_collection = testmongo.items_in_collection()
     self.api_response(items_in_collection)
+
+class ToDo(app.basic.BaseHandler):
+
+  def get(self):
+    """
+    to-do list app
+    """
+    self.render('todo.html')

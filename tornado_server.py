@@ -30,6 +30,7 @@ class Application(tornado.web.Application):
     the endpoints this torando instance provides
     """
     handlers = [
+      (r"/todo", app.general.ToDo),
       (r"/test/mongo", app.general.TestMongo),
       (r".+", app.general.NotFound),
     ]
