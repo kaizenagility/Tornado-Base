@@ -4,10 +4,10 @@
 
 <h2>To Do List</h2>
 
-<p>testing...</p>
-
 <ul>
-<li> {{ todos }} </li>
+    {% for todo in todos %}
+<li> {{ todo }} </li>
+    {% end %}
 </ul>
 
 {% end %}
