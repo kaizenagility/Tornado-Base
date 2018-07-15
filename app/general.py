@@ -25,5 +25,13 @@ class ToDo(app.basic.BaseHandler):
     to_do_list = testmongo.get_todos() 
     self.render('todo.html', todos = to_do_list)
   
-  def post(new_todo):
-    testmongo.create_todo(new_todo)
+  def post(self):
+    try:
+      print "Adding new todo"
+      new_todo = self.get_argument("new_todo")
+      if not new_todo:
+        return self.write({"success":False})
+      testmongo.create_todo(new_todo)
+      self.write({"success":True})
+    except:
+      self.write({"success":False})
