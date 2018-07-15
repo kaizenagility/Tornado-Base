@@ -10,5 +10,7 @@ def items_in_collection():
 # Troubleshooting with findOne() method instead of iterating through find()
 
 def get_todos():
-  return list(db.ToDoList.find());
+  todolist = list(db.ToDoList.find({},{ '_id': 0 }))
+  tasks = map(lambda x: x['task'], todolist)
+  return tasks;
 
