@@ -13,6 +13,9 @@
     {% end %}
 </ol>
 
-<button> Add Task </button>
+<form action="/todo" method="post">
+  <input type="text" name="new_todo"> </input>
+  <input type="submit" value="Add Task"> </input>
+</form>
 
 {% end %}

@@ -22,8 +22,8 @@ class TestMongo(app.basic.BaseHandler):
 class ToDo(app.basic.BaseHandler):
 
   def get(self):
-    """
-    to-do list app
-    """
     to_do_list = testmongo.get_todos() 
     self.render('todo.html', todos = to_do_list)
+  
+  def post(new_todo):
+    testmongo.create_todo(new_todo)
