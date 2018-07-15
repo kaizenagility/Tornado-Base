@@ -11,7 +11,7 @@ def get_todos():
 
 # CREATE operation to add new task to DB
 def create_todo(new_todo):
-  db.ToDoList.insertOne({'task': new_todo})
+  db.ToDoList.insert_one({'task': new_todo})
 
 # def update_todo():
 
