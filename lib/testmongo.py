@@ -26,7 +26,7 @@ def delete_todo(remove_todo):
 # UPDATE operation
 def update_todo(update_todo, new_todo):
   try:
-    id = ObjectId(update_todo_todo)
+    id = ObjectId(update_todo)
     db.ToDoList.update_one({'_id': id, 'task': new_todo})
     print "Updated database."
   except:
