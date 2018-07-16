@@ -33,5 +33,18 @@ class ToDo(app.basic.BaseHandler):
         return self.write({"success":False})
       testmongo.create_todo(new_todo)
       self.write({"success":True})
+      # self.render('todo.html')
+    except:
+      self.write({"success":False})
+
+
+class ToDoDelete(app.basic.BaseHandler):
+
+  def post(self):
+    try:
+      print "Deleting task"
+      remove_todo = self.get_argument("remove_todo")
+      testmongo.delete_todo(remove_todo)
+      self.write({"success":True})
     except:
       self.write({"success":False})

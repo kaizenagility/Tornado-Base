@@ -31,6 +31,7 @@ class Application(tornado.web.Application):
     """
     handlers = [
       (r"/todo", app.general.ToDo),
+      (r"/todo/delete", app.general.ToDoDelete),
       (r"/test/mongo", app.general.TestMongo),
       (r".+", app.general.NotFound),
     ]

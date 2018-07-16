@@ -6,9 +6,9 @@
 
 <ol>
     {% for todo in todos %}
-<li> {{ todo }}  
+<li> {{ todo['task'] }}  
         <button> ✎ </button>
-        <button> ✘ </button>
+        <form action="/todo/delete" method="post"><input type="hidden" name="remove_todo" value={{todo['_id']}} > <input type="submit" value="✘"></input> </form>
 </li>
     {% end %}
 </ol>
