@@ -18,7 +18,6 @@ def create_todo(new_todo):
 
 def delete_todo(remove_todo):
   try:
-    # import pdb; pdb.set_trace()
     id = ObjectId(remove_todo)
     db.ToDoList.delete_one({'_id': id})
     print "Deleted from database."
