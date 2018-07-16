@@ -14,12 +14,20 @@ def get_todos():
 def create_todo(new_todo):
   db.ToDoList.insert_one({'task': new_todo})
 
-# def update_todo():
-
+# DELETE operation
 def delete_todo(remove_todo):
   try:
     id = ObjectId(remove_todo)
     db.ToDoList.delete_one({'_id': id})
     print "Deleted from database."
+  except:
+    print "Failed at Model step."
+
+# UPDATE operation
+def update_todo(update_todo):
+  try:
+    id = ObjectId(remove_todo)
+    db.ToDoList.update_one({'_id': id})
+    print "Updated database."
   except:
     print "Failed at Model step."

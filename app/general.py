@@ -48,3 +48,15 @@ class ToDoDelete(app.basic.BaseHandler):
       self.write({"success":True})
     except:
       self.write({"success":False})
+
+
+class ToDoUpdate(app.basic.BaseHandler):
+
+  def post(self):
+    try:
+      print "Updating task"
+      update_todo = self.get_argument("update_todo")
+      testmongo.update_todo(update_todo)
+      self.write({"success":True})
+    except:
+      self.write({"success":False})

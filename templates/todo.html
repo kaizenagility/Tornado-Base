@@ -7,8 +7,8 @@
 <ol>
     {% for todo in todos %}
 <li> {{ todo['task'] }}  
-        <button> ✎ </button>
-        <form action="/todo/delete" method="post"><input type="hidden" name="remove_todo" value={{todo['_id']}} > <input type="submit" value="✘"></input> </form>
+        <form action="/todo/update" method="post"><input type="hidden" name="update_todo" value={{todo['_id']}} > <input type="submit" value="✎ Edit"></input> </form>
+        <form action="/todo/delete" method="post"><input type="hidden" name="remove_todo" value={{todo['_id']}} > <input type="submit" value="✘ Delete"></input> </form>
 </li>
     {% end %}
 </ol>
