@@ -24,10 +24,10 @@ def delete_todo(remove_todo):
     print "Failed at Model step."
 
 # UPDATE operation
-def update_todo(update_todo):
+def update_todo(update_todo, new_todo):
   try:
-    id = ObjectId(remove_todo)
-    db.ToDoList.update_one({'_id': id})
+    id = ObjectId(update_todo_todo)
+    db.ToDoList.update_one({'_id': id, 'task': new_todo})
     print "Updated database."
   except:
     print "Failed at Model step."

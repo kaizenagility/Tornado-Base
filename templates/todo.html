@@ -4,18 +4,21 @@
 
 <h2>To Do List</h2>
 
+<form action="/todo" method="post">
+    <input type="text" name="new_todo"> </input>
+    <input type="submit" value="Add Task"> </input>
+</form>
+
+<hr>
+
 <ol>
     {% for todo in todos %}
 <li> {{ todo['task'] }}  
-        <form action="/todo/update" method="post"><input type="hidden" name="update_todo" value={{todo['_id']}} > <input type="submit" value="✎ Edit"></input> </form>
+        <form action="/todo/update" method="post"><input type="hidden" name="update_todo" value={{todo['_id']}} ><input type="text" name="new_todo"></input> <input type="submit" value="✎ Edit"></input> </form>
         <form action="/todo/delete" method="post"><input type="hidden" name="remove_todo" value={{todo['_id']}} > <input type="submit" value="✘ Delete"></input> </form>
+        <br>
 </li>
     {% end %}
 </ol>
-
-<form action="/todo" method="post">
-  <input type="text" name="new_todo"> </input>
-  <input type="submit" value="Add Task"> </input>
-</form>
 
 {% end %}

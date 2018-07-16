@@ -56,7 +56,8 @@ class ToDoUpdate(app.basic.BaseHandler):
     try:
       print "Updating task"
       update_todo = self.get_argument("update_todo")
-      testmongo.update_todo(update_todo)
+      new_todo = self.get_argument("new_todo")
+      testmongo.update_todo(update_todo, new_todo)
       self.write({"success":True})
     except:
       self.write({"success":False})
